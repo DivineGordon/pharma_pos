@@ -1,0 +1,14 @@
+{% if object_list.exists() %}
+<ul class="w3-ul w3-hoverable">
+{% for product in object_list %}
+<li data-pk="{{ product.pk }}">
+<button  data-pk="{{ product.pk }}"  style="display: contents;" >
+<span  class="w3-margin-right w3-left"> {{ product.product_name }} </span>
+<span  class="w3-margin-right" >{{ product.brand_name }}</span> 
+<span  class="w3-margin-right">{{product.unit_quantity  }}</span>
+<span >GH {{product.price }}</span>
+</button>
+</li>
+ {% endfor %} 
+</ul>
+{% else %}No results found{%  endif  %}

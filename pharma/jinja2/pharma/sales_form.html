@@ -1,0 +1,6 @@
+{{ csrf_input }}
+
+{% if form.errors %}
+{{ form.non_field_errors }}
+{{ form.errors }}
+{% endif %}

@@ -1,0 +1,43 @@
+{% extends "pharma/crud_base.html" %}
+{% block content  %}
+
+    {% if form.errors %}
+    <p>Your username and password didn't match. Please try again.</p>
+    {% endif %}
+    {% if next is defined %}
+    {% if user.is_authenticated  %}
+    <p>Your account doesn't have access to this page. To proceed,
+    please login with an account that has access.</p>
+    {% else %}
+    <p>Please login to see this page.</p>
+    {% endif %}
+    {% endif %}
+<div class="w3-main" style="margin-left: 200px;max-width:700px;">
+ <h2>Login Form</h2>
+ <div class="imgcontainer">
+    <img src="/static/images/img_avatar_woman2.png" alt="Avatar" class="avatar">
+  </div>
+<form method="post" action="{{ url('login') }}">
+    {{ csrf_input }}
+    <div class="container">
+   
+    {{ form.username.label_tag() }}
+    {{ form.username }}
+  
+    {{ form.password.label_tag() }}
+    {{ form.password }}
+    
+    
+    <button type="submit" value="login">login</button>
+    {%  if next is defined %}
+    <input type="hidden" name="next" value="{{ next }}">
+    {% endif %}
+</div>
+    <div class="container" style="background-color:#f1f1f1">
+        <button type="reset" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+      </div>
+    </form>
+</div>
+{%  endblock  %}
+    {# Assumes you setup the password_reset view in your URLconf #}

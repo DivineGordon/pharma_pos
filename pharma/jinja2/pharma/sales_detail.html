@@ -1,0 +1,15 @@
+<div data-product_name="{{ product.product_name }}" 
+data-stock_quantity="{{ product.stock_quantity}}"
+data-price="{{ product.price}}" 
+data-brand_name="{{ product.brand_name }}" 
+data-pk="{{product.pk}}"
+ class="w3-container w3-margin product-detail">
+<h1>{{ product.product_name }}</h1>
+<h3>Customer Name : {{ sales.customer }}</h3>
+<h3>Date : {{ sales.date }}</h3>
+{% for sale in sales.sale_set.all() %}
+
+
+
+{% endfor %}
+<h3>Total: {{ sales.amount }}</h3>

@@ -1,0 +1,15 @@
+{%  extends "pharma/crud_base.html" %}
+
+{%  block content %}
+<div   class="w3-main" style="max-width: 700px; margin-left: 200px;margin-top: 10%;">
+{% include 'pharma/product_detail.html '%}
+<form method="post" action="{{ url('stockentry-create',args=(product.pk,)) }}">
+{{ csrf_input }}
+{{ form }}
+<div class="container w3-margin-top" style="background-color:#f1f1f1">
+  <button type="submit" value="login">submit</button>
+    <button type="reset" class="cancelbtn">Cancel</button>  
+  </div>
+</form>
+</div>
+{%  endblock  %}

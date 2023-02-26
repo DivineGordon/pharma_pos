@@ -1,0 +1,21 @@
+<div data-product_name="{{ product.product_name }}" 
+data-stock_quantity="{{ product.stock_quantity}}"
+data-price="{{ product.price}}" 
+data-brand_name="{{ product.brand_name }}" 
+data-pk="{{product.pk}}"
+ class="w3-container w3-margin product-detail">
+<h1>{{ product.product_name }}</h1>
+<p>Brand name: {{ product.brand_name }}</p>
+<p>Unit quantity: {{product.unit_quantity }}</p>
+<p>Package Quantity: {{ product.package_quantity }}</p>
+<p>Description: {{ product.description }}</p>
+<p>Stock quantity: {{ product.stock_quantity}}</p>
+<p>Price (GH): {{ product.price}}</p>
+{% if sale is defined and product.stock_quantity>0  %}
+<div class="w3-container w3-margin">
+<label>Purchase Quantity</label>
+<input type="number" value="1" class="purchase-quantity" 
+min="1" max="{{ product.stock_quantity}}">
+</div>
+{% endif %}
+</div>
