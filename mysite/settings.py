@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'SECRET_KEY'
+SECRET_KEY = os.environ["DJ_SECRET_KEY"]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['','localhost']
+ALLOWED_HOSTS = [os.environ["DJ_HOST_1"],os.environ["DJ_HOST_2"]]
 
 
 # Application definition
@@ -97,9 +97,9 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
        'NAME': 'postgres',
        'USER': 'postgres',
-        'PASSWORD': 'pwd',
+        'PASSWORD': os.environ["PH_DB_PASSWORD"],
         'HOST': 'localhost',
-        'PORT': 90000,
+        'PORT':int( os.environ["PH_DB_PORT"]),
        # 'TIME_ZONE':'UTC'
     }
 }
@@ -144,5 +144,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-
+os.environ["STATIC_DIR1"],
+os.environ["STATIC_DIR2"]
 ]
